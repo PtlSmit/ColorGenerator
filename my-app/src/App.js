@@ -12,6 +12,7 @@ const App = () => {
 
     try {
       let colors = new Values(color).all(20);
+      setList(colors)
       console.log(colors);
     } catch (error) {
       console.log(error);
@@ -35,8 +36,11 @@ const App = () => {
           </button>
         </form>
       </section>
-      <section className="color">
-        <h4>List Goes Here</h4>
+      <section className="colors">
+        {list.map((color,index) =>{
+          console.log(color)
+          return <SingleColor key={index} {...color} index={index}/>
+        })}
       </section>
     </>
   );
